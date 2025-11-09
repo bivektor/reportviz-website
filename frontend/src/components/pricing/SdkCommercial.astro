@@ -1,6 +1,7 @@
 ---
 import PricingCard from "../PricingCard.astro";
 const isPricingPage = Astro.url.pathname === "/pricing";
+import { getStripeConfig } from "../../config";
 
 const supportLink = isPricingPage ? "basic support" :  `<a href="/pricing">basic support</a>`;
 
@@ -23,7 +24,7 @@ const { button = false } = Astro.props;
   {button && (
     <div class="d-grid mt-4">
       <a
-        href="https://buy.stripe.com/14k14g7sAfqW7TG5kl"
+        href={getStripeConfig().sdkPaymentLink}
         class="btn btn-primary btn-lg"
         >Buy Now</a
       >

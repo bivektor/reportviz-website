@@ -2,14 +2,17 @@
 import SdkCommercial from "../components/pricing/SdkCommercial.astro";
 import SdkCommunity from "../components/pricing/SdkCommunity.astro";
 import Layout from "../layouts/Layout.astro";
+import { getStripeConfig } from "../config";
+
+const stripeConfig = getStripeConfig();
 ---
 
 <Layout title="Pricing">
   <div class="py-5 container-sm">
-    <h2 class="mb-4">ReportViewer SDK Pricing</h2>
-    <p>
-      ReportViz is available under two licensing options: Community and Commercial.
-      Choose the option that best fits your project's needs.
+    <h2 class="mb-4 text-center">Report Viewer SDK Pricing</h2>
+    <p class="text-center">
+      ReportViz is available under two licensing options: Community and
+      Commercial. Choose the option that best fits your project's needs.
     </p>
     <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
       <div class="col">
@@ -20,4 +23,22 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </div>
+  <div class="py-5 container-sm">
+    <h2 class="mb-4 text-center">Support Packages</h2>
+    <p class="text-center">
+      In addition to the SDK licenses, we offer support packages to help you get
+      the most out of ReportViz. <br />Choose from Basic and Premium support options
+      based on your requirements.
+    </p>
+    <stripe-pricing-table
+      pricing-table-id={stripeConfig.supportTableId}
+      publishable-key={stripeConfig.supportTablePublishingKey}
+    >
+    </stripe-pricing-table>
+  </div>
+
+  <Fragment slot="scripts">
+    <script is:raw async src="https://js.stripe.com/v3/pricing-table.js"
+    ></script>
+  </Fragment>
 </Layout>
