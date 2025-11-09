@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+interface Props {
+  title: string;
+  icon?: string;
+}
+
+const { title, icon: iconName = "list", ...rest } = Astro.props;
+
+const icons = import.meta.glob("/src/assets/icons/*.svg", { eager: true });
+const path = `/src/assets/icons/${iconName}.svg`;
+
+const icon = icons[path] as { default: any } | undefined;
+console.log(icon?.default);
+---
+
+<div class="card h-100 feature-card" data-aos="fade-up" {...rest}>
+  <div class="card-body d-flex">
+    {icon && <Image class="icon" src={icon.default} alt={iconName} />}
+    <div class="ms-3">
+      <h5>{title}</h5>
+      <slot />
+    </div>
+  </div>
+
+  <style>
+    .icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+  </style>
+</div>

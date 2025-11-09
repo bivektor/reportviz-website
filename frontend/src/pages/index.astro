@@ -1,11 +1,163 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Feature from "../components/Feature.astro";
+import JasperReports from "../components/JasperReports.astro";
+import SdkCommercial from "../components/pricing/SdkCommercial.astro";
+import SdkCommunity from "../components/pricing/SdkCommunity.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <div class="py-5 container-sm">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col d-flex flex-column justify-content-center">
+        <h1 style="font-size: 4rem;">Report Viewer SDK for Java</h1>
+        <p class="fw-light">
+          Effortlessly view and execute reports created with <JasperReports /> in
+          Spring web apps
+        </p>
+        <div class="mt-3">
+          <a
+            class="btn btn-primary btn-lg"
+            href="/docs/getting-started/installation">Get Started</a
+          >
+        </div>
+      </div>
+      <div class="col">
+        <img src="/home-chart-image.png" class="img-fluid" />
+      </div>
+    </div>
+  </div>
+  <div class="py-5 bg-light">
+    <h1 class="mb-4 text-center">Features</h1>
+    <div class="container-sm">
+      <ul
+        class="row list-unstyled row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 g-lg-4 g-xl-5"
+      >
+        <li class="col">
+          <Feature title="REST APIs for Parameter Forms" icon="list"
+            >Build parameter forms from auto-generated UI metadata including
+            control types, states and default values.</Feature
+          >
+        </li>
+        <li class="col">
+          <Feature title="Smart Parameter Binding" icon="convert"
+            >Convert request parameters to typed report parameters using
+            configurable converters. Customize automatic binding per report.</Feature
+          >
+        </li>
+        <li class="col">
+          <Feature
+            title="Dependency-aware input controls"
+            icon="dependency-tree"
+            >Automatically resolve cascading control dependencies based on SQL
+            query structures and handle invalid selections gracefully.</Feature
+          >
+        </li>
+        <li class="col">
+          <Feature title="Print Caching" icon="save"
+            >Cache JasperPrint documents for fast retrieval, navigation and
+            export without re-running the report</Feature
+          >
+        </li>
+        <li class="col">
+          <Feature title="Automatic data source resolution" icon="database"
+            >Resolve report and control data sources using pluggable data source
+            beans.</Feature
+          >
+        </li>
+        <li class="col">
+          <Feature title="Multiple Export Formats" icon="export"
+            >Export reports to PDF, Excel, Word, HTML, CSV and more using
+            built-in JasperReports exporters.</Feature
+          >
+        </li>
+        <li class="col">
+          <Feature title="Pluggable Access Control" icon="access"
+            >Secure your reports with per-report access control powered by a
+            pluggable authorization service.</Feature
+          >
+        </li>
+        <li class="col">
+          <Feature title="Developer Friendly" icon="code"
+            >Integrate with Spring Boot starters, customize through Spring beans
+            and configuration, override default MVC controllers for advanced use
+            cases.</Feature
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="py-5 container-sm">
+    <div class="row row-cols-1 row-cols-lg-2">
+      <div class="col text-center">
+        <img
+          data-aos="fade-right"
+          src="/reportviz-sql-sm.png"
+          style="max-width: 100%; height: auto;"
+          alt="SQL"
+        />
+      </div>
+      <div class="col">
+        <div class="px-3 pt-5 px-lg-5" data-aos="fade-up">
+          <h1>Built for SQL, flexible for more</h1>
+          <p>
+            <strong
+              >ReportViz offers out-of-the-box support for standard reports</strong
+            > that run SQL queries through the primary report data source or connection.
+            It also supports populating input controls (like dropdowns) using SQL
+            queries.
+          </p>
+          <p>
+            For more advanced use cases, developers can register their own data
+            source services — all while benefiting from ReportViz’s unified
+            resource management system that ensures safe cleanup of underlying
+            resources.
+          </p>
+          <p>
+            <strong>ReportViz is open source</strong> — try it out and tell us what
+            you'd like to see in future releases!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="position-relative pricing-section">
+    <div class="bg-light pt-5" style="padding-bottom: 250px;">
+      <h1 class="text-center">Pricing</h1>
+    </div>
+    <div class="container-sm" style="margin-top: -230px;">
+      <div class="row row-cols-1 row-cols-lg-2">
+        <div class="col">
+          <SdkCommunity className="h-100" data-aos="flip-down" />
+        </div>
+        <div class="col">
+          <SdkCommercial className="h-100" data-aos="flip-down" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="footer bg-secondary text-light pb-5 text-center"
+    style="min-height 500px; margin-top: -150px; padding-top: 200px;"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="bg-white shadow border-radius p-3 d-inline-block">
+            <img src="/bivektor_logo.avif" alt="Bivektor Logo" width="120" />
+          </div>
+          <p>
+            &copy; {new Date().getFullYear()} Bivektor Inc. All rights reserved.
+          </p>
+        </div>
+        <div class="col">
+          <h5>Legal</h5>
+          <ul class="list-unstyled">
+            <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/terms-of-service">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>

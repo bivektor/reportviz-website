@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  price?: string;
+  className?: string;
+}
+
+const { title, price = "Free", className = "", ...rest } = Astro.props;
+---
+
+<div class:list={["card pricing-card", className]} {...rest}>
+  <div class="card-body">
+    <h3 class="card-title text-center">{title}</h3>
+    <div class="card-text w-75 mx-auto">
+      <h4 class="price text-light-emphasis text-center my-4" >{price}</h4>
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  .pricing-card {
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border-radius: 0.5rem;
+  }
+
+  .pricing-card .price {
+    font-size: 2rem;
+  }
