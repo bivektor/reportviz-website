@@ -18,7 +18,7 @@ interface StripeConfig {
 }
 
 export function getStripeConfig(): StripeConfig {
-  return stripeConfig.live;
+  return stripeConfig.test;
 }
 
 const stripeConfig = {
