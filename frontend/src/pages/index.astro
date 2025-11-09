@@ -1,12 +1,13 @@
 ---
 import Feature from "../components/Feature.astro";
+import HomeGetStarted from "../components/HomeGetStarted.astro";
 import JasperReports from "../components/JasperReports.astro";
 import SdkCommercial from "../components/pricing/SdkCommercial.astro";
 import SdkCommunity from "../components/pricing/SdkCommunity.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
+<Layout class:list="home">
   <div class="py-5 container-sm">
     <div class="row row-cols-1 row-cols-md-2 g-4">
       <div class="col d-flex flex-column justify-content-center">
@@ -28,7 +29,7 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </div>
   <div class="py-5 bg-light">
-    <h1 class="mb-4 text-center">Features</h1>
+    <h2 class="mb-4 text-center">Features</h2>
     <div class="container-sm">
       <ul
         class="row list-unstyled row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 g-lg-4 g-xl-5"
@@ -87,6 +88,12 @@ import Layout from "../layouts/Layout.astro";
       </ul>
     </div>
   </div>
+  <div class="py-5 border-bottom">
+    <div class="container">
+			<h2 class="text-center mb-5">Get Started</h2>
+		<HomeGetStarted />
+		</div>
+  </div>
   <div class="py-5 container-sm">
     <div class="row row-cols-1 row-cols-lg-2">
       <div class="col text-center">
@@ -99,7 +106,7 @@ import Layout from "../layouts/Layout.astro";
       </div>
       <div class="col">
         <div class="px-3 pt-5 px-lg-5" data-aos="fade-up">
-          <h1>Built for SQL, flexible for more</h1>
+          <h2>Built for SQL, flexible for more</h2>
           <p>
             <strong
               >ReportViz offers out-of-the-box support for standard reports</strong
@@ -121,12 +128,12 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </div>
-  <div class="position-relative pricing-section">
-    <div class="bg-light pt-5" style="padding-bottom: 250px;">
-      <h1 class="text-center">Pricing</h1>
+  <div class="position-relative pricing-section bg-secondary">
+    <div class="bg-light pt-5" style="padding-bottom: 250px">
+      <h2 class="text-center">Pricing</h2>
     </div>
-    <div class="container-sm" style="margin-top: -230px;">
-      <div class="row row-cols-1 row-cols-lg-2">
+    <div class="container-sm" style="margin-top: -250px">
+      <div class="row row-cols-1 row-cols-lg-2 g-4">
         <div class="col">
           <SdkCommunity className="h-100" data-aos="flip-down" />
         </div>
@@ -136,28 +143,22 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </div>
-  <div
-    class="footer bg-secondary text-light pb-5 text-center"
-    style="min-height 500px; margin-top: -150px; padding-top: 200px;"
-  >
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="bg-white shadow border-radius p-3 d-inline-block">
-            <img src="/bivektor_logo.avif" alt="Bivektor Logo" width="120" />
-          </div>
-          <p>
-            &copy; {new Date().getFullYear()} Bivektor Inc. All rights reserved.
-          </p>
-        </div>
-        <div class="col">
-          <h5>Legal</h5>
-          <ul class="list-unstyled">
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-            <li><a href="/terms-of-service">Terms of Service</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+
+  <Fragment slot="head">
+    <link
+      is:raw
+      href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css"
+      rel="stylesheet"
+    />
+  </Fragment>
+
+  <Fragment slot="scripts">
+    <script
+      is:raw
+      src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script
+      is:raw
+      src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-java.min.js"
+    ></script>
+  </Fragment>
 </Layout>

@@ -1,0 +1,45 @@
+---
+import JasperReports from "./JasperReports.astro";
+---
+
+<div class="row row-cols-1 row-cols-lg-2 g-4 mb-3">
+  <div class="col">
+    <h5><span class="badge bg-primary">1</span> Enable and configure ReportViz</h5>
+    <p>
+      ReportViz works with <strong
+        >precompiled JasperReport (.jasper) objects</strong
+      > and by default, it uses <JasperReports /> repository services to load them.
+    </p>
+  </div>
+  <div class="col">
+    <h5><span class="badge bg-primary">2</span> Build your UI</h5>
+    <p>
+      Use ReportViz's REST APIs to build parameter forms, execute and preview
+      reports with your own UI using React, Vue, Angular, or any frontend
+      framework of your choice.
+    </p>
+  </div>
+</div>
+<pre><code class="language-java" is:raw>
+@EnableReportViz
+public class ReportViewerConfig {
+	private static final String REPORTS_DIR = "/path/to/your/reports";
+
+	/**
+    Register file system repository and persistence services to load reports and subreports from a specific directory.
+    Extensions registered this way automatically become available to JasperReports engine.
+	*/
+	@Bean
+	public ExtensionsRegistry fileRepositoryExtensionsRegistry() {
+		FileRepositoryService repositoryService = new FileRepositoryService(
+				DefaultJasperReportsContext.getInstance(),
+				REPOR,
+				false
+		);
+
+		return new ListExtensionsRegistry()
+				.add(FileRepositoryPersistenceServiceFactory.class, FileRepositoryPersistenceServiceFactory.getInstance())
+				.add(FileRepositoryService.class, repositoryService);
+	}
+}
+</code></pre>
