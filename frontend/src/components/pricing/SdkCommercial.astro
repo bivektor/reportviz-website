@@ -1,5 +1,10 @@
 ---
 import PricingCard from "../PricingCard.astro";
+const isPricingPage = Astro.url.pathname === "/pricing";
+
+const supportLink = isPricingPage ? "basic support" :  `<a href="/pricing">basic support</a>`;
+
+const { button = false } = Astro.props;
 ---
 
 <PricingCard title="Commmercial" price="$399" {...Astro.props}>
@@ -10,7 +15,18 @@ import PricingCard from "../PricingCard.astro";
     <li>Access to full SDK features</li>
     <li>Actively maintained and updated</li>
     <li>Full source code access</li>
-    <li>Includes minor version upgrades</li>
     <li>No GPL copyleft requirements</li>
+    <li>Includes minor version upgrades</li>
+    <li>Includes 1 year <Fragment set:html={supportLink} /> for one seat</li>
   </ul>
+
+  {button && (
+    <div class="d-grid mt-4">
+      <a
+        href="https://buy.stripe.com/14k14g7sAfqW7TG5kl"
+        class="btn btn-primary btn-lg"
+        >Buy Now</a
+      >
+    </div>
+  )}
 </PricingCard>

@@ -1,3 +1,8 @@
+---
+const isHome = Astro.url.pathname === "/";
+const pricingLink = isHome ? "#pricing" : "/pricing";
+---
+
 <nav class="navbar navbar-expand-lg bg-white">
   <div class="container-sm">
     <a class="navbar-brand" href="#">
@@ -14,9 +19,19 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    <navbar-collapse id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href={pricingLink}>Pricing</a>
+        </li>
+      </ul>
+    </navbar-collapse>
     <navbar-nav class="ms-auto">
       <a class="nav-link" href="https://github.com/bivektor/reportviz">
-        <img src="/github-logo.png" alt="Github" style="width: 40px;">
+        <img src="/github-logo.png" alt="Github" style="width: 40px;" />
       </a>
     </navbar-nav>
   </div>

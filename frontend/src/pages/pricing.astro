@@ -1,0 +1,23 @@
+---
+import SdkCommercial from "../components/pricing/SdkCommercial.astro";
+import SdkCommunity from "../components/pricing/SdkCommunity.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Pricing">
+  <div class="py-5 container-sm">
+    <h2 class="mb-4">ReportViewer SDK Pricing</h2>
+    <p>
+      ReportViz is available under two licensing options: Community and Commercial.
+      Choose the option that best fits your project's needs.
+    </p>
+    <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+      <div class="col">
+        <SdkCommunity class:list="h-100" />
+      </div>
+      <div class="col">
+        <SdkCommercial class:list="h-100" button={true} />
+      </div>
+    </div>
+  </div>
+</Layout>

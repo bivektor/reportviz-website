@@ -2,10 +2,10 @@
 interface Props {
   title: string;
   price?: string;
-  className?: string;
+  class?: string;
 }
 
-const { title, price = "Free", className = "", ...rest } = Astro.props;
+const { title, price = "Free", class: className = "", ...rest } = Astro.props;
 ---
 
 <div class:list={["card pricing-card", className]} {...rest}>

@@ -1,8 +1,9 @@
 ---
 import Header from "../components/Header.astro";
+import { siteConfig } from "../config";
 
 const { title, class: classList } = Astro.props;
-const fullTitle = title ? `${title} | ReportViz` : "ReportViz";
+const fullTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
 ---
 
 <!doctype html>
@@ -114,10 +115,10 @@ const fullTitle = title ? `${title} | ReportViz` : "ReportViz";
     <slot />
     <footer
       class="footer bg-secondary text-light py-5"
-      style="font-size: 14px;"
+      style="font-size: 14px; min-height: 30rem;"
     >
       <div class="container">
-        <div class="row">
+        <div class="row" style="margin-bottom: 10rem;">
           <div class="col">
             <img src="/bivektor_logo.avif" alt="Bivektor Logo" width="120" />
             <p>

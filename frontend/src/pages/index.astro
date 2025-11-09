@@ -129,16 +129,18 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </div>
   <div class="position-relative pricing-section bg-secondary">
-    <div class="bg-light pt-5" style="padding-bottom: 250px">
-      <h2 class="text-center">Pricing</h2>
+		<a id="pricing" class="hidden"></a>
+    <div class="bg-light pt-5 text-center" style="padding-bottom: 250px">
+			<h2>Pricing</h2>
+			<p class="text-muted">Please check <a href="/pricing">pricing page</a> for support package prices.</p>
     </div>
     <div class="container-sm" style="margin-top: -250px">
       <div class="row row-cols-1 row-cols-lg-2 g-4">
         <div class="col">
-          <SdkCommunity className="h-100" data-aos="flip-down" />
+          <SdkCommunity class:list="h-100" data-aos="flip-down" />
         </div>
         <div class="col">
-          <SdkCommercial className="h-100" data-aos="flip-down" />
+          <SdkCommercial class:list="h-100" data-aos="flip-down" />
         </div>
       </div>
     </div>
