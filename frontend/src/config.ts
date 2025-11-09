@@ -18,12 +18,13 @@ interface StripeConfig {
 }
 
 export function getStripeConfig(): StripeConfig {
-  return stripeConfig.test;
+  const mode = import.meta.env.PUBLIC_STRIPE_MODE || 'test';
+  return stripeConfig[mode as keyof typeof stripeConfig];
 }
 
 const stripeConfig = {
   test: {
-      sdkPaymentLink: "https://buy.stripe.com/test_14k14g4fZ9dQ0gU6oo",
+      sdkPaymentLink: "https://buy.stripe.com/test_3cIcN5ci502C1UPc2mbfO00",
       supportTableId: "prctbl_1SRXmHFZadBQIVy9V8o8gd3f",
       supportTablePublishingKey: "pk_test_51RvK1wFZadBQIVy992V1glw005tG4GesJFlsGrF3YFZqFW8gc3WXuY1Prl31hn9s1pybCG1wt1vZXhowaMKzS5m300QTOhrC0T",
     },
