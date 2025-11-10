@@ -84,20 +84,12 @@ import Layout from "../layouts/Layout.astro";
   </div>
   <div class="py-5 border-bottom">
     <div class="container">
-			<h2 class="text-center mb-5">Get Started</h2>
-		<HomeGetStarted />
-		</div>
+      <h2 class="text-center mb-5">Get Started</h2>
+      <HomeGetStarted />
+    </div>
   </div>
   <div class="py-5 container-sm">
     <div class="row row-cols-1 row-cols-lg-2">
-      <div class="col text-center">
-        <img
-          data-aos="fade-right"
-          src="/reportviz-sql-sm.png"
-          style="max-width: 100%; height: auto;"
-          alt="SQL"
-        />
-      </div>
       <div class="col">
         <div class="px-3 pt-5 px-lg-5" data-aos="fade-up">
           <h2>Built for SQL, flexible for more</h2>
@@ -120,21 +112,36 @@ import Layout from "../layouts/Layout.astro";
           </p>
         </div>
       </div>
+      <div class="col text-center">
+        <img
+          data-aos="fade-right"
+          src="/reportviz-sql-sm.png"
+          style="max-width: 100%; height: auto;"
+          alt="SQL"
+        />
+      </div>
     </div>
   </div>
   <div class="position-relative pricing-section bg-secondary">
-		<a id="pricing" class="hidden"></a>
+    <a id="pricing" class="hidden"></a>
     <div class="bg-light pt-5 text-center" style="padding-bottom: 250px">
-			<h2>Pricing</h2>
-			<p class="text-muted">Please check <a href="/pricing">pricing page</a> for support package prices.</p>
+      <h2>Pricing</h2>
     </div>
     <div class="container-sm" style="margin-top: -250px">
       <div class="row row-cols-1 row-cols-lg-2 g-4">
         <div class="col">
-          <SdkCommunity class:list="h-100" data-aos="flip-down" />
+          <SdkCommunity class:list="h-100" data-aos="flip-down">
+            <p class="text-muted mt-3">
+              See <a href="/pricing">support packages.</a>
+            </p>
+          </SdkCommunity>
         </div>
         <div class="col">
-          <SdkCommercial class:list="h-100" data-aos="flip-down" button={true} />
+          <SdkCommercial
+            class:list="h-100"
+            data-aos="flip-down"
+            button={true}
+          />
         </div>
       </div>
     </div>

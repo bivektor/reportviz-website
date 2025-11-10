@@ -1,26 +1,81 @@
 ---
+import { Image } from "astro:assets";
+import frameworksImage from "../assets/ui-frameworks.png";
 import JasperReports from "./JasperReports.astro";
 ---
 
-<div class="row row-cols-1 row-cols-lg-2 g-4 mb-3">
-  <div class="col">
-    <h5><span class="badge bg-primary">1</span> Enable and configure ReportViz</h5>
+<ul class="nav nav-tabs" id="reportviz-tabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link active"
+      data-bs-toggle="tab"
+      data-bs-target="#get-started-tab-setup"
+      type="button"
+      role="tab"
+      aria-controls="setup"
+      aria-selected="true"
+    >
+      <span class="badge bg-primary">1</span> Add ReportViz Starter
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link"
+      data-bs-toggle="tab"
+      data-bs-target="#get-started-tab-config"
+      type="button"
+      role="tab"
+      aria-controls="config"
+      aria-selected="false"
+    >
+      <span class="badge bg-primary">2</span> Configure a Report repository
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link"
+      data-bs-toggle="tab"
+      data-bs-target="#get-started-tab-ui"
+      type="button"
+      role="tab"
+      aria-controls="ui"
+      aria-selected="false"
+    >
+      <span class="badge bg-primary">3</span> Build your UI
+    </button>
+  </li>
+</ul>
+
+<div class="tab-content mt-3 p-3">
+  <div
+    class="tab-pane fade show active"
+    id="get-started-tab-setup"
+    role="tabpanel"
+    aria-labelledby="get-started-tab-setup"
+  >
+    <h5>Gradle</h5>
+    <pre><code class="language-java" is:raw>
+dependencies {
+    implementation("com.reportviz:reportviz-spring-boot-starter-web:&lt;VERSION&gt;")
+}
+</code></pre>
+  </div>
+  <div
+    class="tab-pane fade"
+    id="get-started-tab-config"
+    role="tabpanel"
+    aria-labelledby="get-started-tab-config"
+  >
     <p>
       ReportViz works with <strong
         >precompiled JasperReport (.jasper) objects</strong
       > and by default, it uses <JasperReports /> repository services to load them.
+      <p>
+        You should configure at least one repository to let ReportViz find your
+        reports.
+      </p>
     </p>
-  </div>
-  <div class="col">
-    <h5><span class="badge bg-primary">2</span> Build your UI</h5>
-    <p>
-      Use ReportViz's REST APIs to build parameter forms, execute and preview
-      reports with your own UI using React, Vue, Angular, or any frontend
-      framework of your choice.
-    </p>
-  </div>
-</div>
-<pre><code class="language-java" is:raw>
+    <pre><code class="language-java" is:raw>
 @EnableReportViz
 public class ReportViewerConfig {
 	private static final String REPORTS_DIR = "/path/to/your/reports";
@@ -43,3 +98,36 @@ public class ReportViewerConfig {
 	}
 }
 </code></pre>
+  </div>
+  <div
+    class="tab-pane fade"
+    id="get-started-tab-ui"
+    role="tabpanel"
+    aria-labelledby="get-started-tab-ui"
+  >
+    <div class="row row-cols-1 row-cols-md-2">
+      <div class="col">
+        <Image
+          src={frameworksImage}
+          alt="Frontend Frameworks"
+          style="max-width: 100%; height: auto;"
+        />
+      </div>
+      <div class="col">
+        <p>
+          Use ReportViz’s REST API to build a fully custom report viewer with
+          your preferred frontend framework.
+        </p>
+        <p>
+          ReportViz exposes the necessary metadata needed to generate dynamic
+          parameter forms and report viewer components.
+        </p>
+        <p>
+          ReportViz also provides the REST APIs execute and cache report
+          outputs, and render reports in multiple formats (HTML, PDF, Excel, and
+          more) — either instantly or from cached executions.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
