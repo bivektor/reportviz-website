@@ -1,0 +1,77 @@
+---
+import { Image } from "astro:assets";
+import questionMarkIcon from "../assets/icons/question-mark.svg";
+---
+
+<footer class="footer bg-secondary text-light py-5" style="font-size: 14px;">
+  <div class="container mt-5">
+    <div
+      class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-4"
+    >
+      <div class="col d-flex justify-content-start justify-content-md-center">
+        <div>
+          <img src="/bivektor_logo.avif" alt="Bivektor Logo" width="120" />
+          <p>
+            169 Madison Ave STE 38162 <br /> New York, NY 10016, USA
+          </p>
+        </div>
+      </div>
+      <div class="col d-flex justify-content-start justify-content-md-center">
+        <div>
+          <h5 class="text-light mb-2">Product</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/demo" class="text-light">Demo</a></li>
+            <li class="mb-2">
+              <a href="https://github.com/bivektor/reportviz" class="text-light"
+                >Github Repository</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col d-flex justify-content-start justify-content-md-center">
+        <div>
+          <h5 class="text-light mb-2">Legal</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="/privacy-policy" class="text-light">Privacy Policy</a>
+            </li>
+            <li class="mb-2">
+              <a href="/terms-of-service" class="text-light">Terms of Service</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col d-flex justify-content-start justify-content-md-center">
+        <div>
+          <h5 class="text-light mb-2">Contact</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+            <a
+              href="javascript:OpenWidget.call('maximize', { feature: 'form-contact' })"
+              class="text-light"
+            >
+              Write to us
+            </a>
+          </li>
+          <li class="mb-2">
+            <a
+              href="javascript:OpenWidget.call('maximize', { feature: 'form-contact' })"
+              class="text-light"
+            >
+              Report a bug
+            </a>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr style="height: 1px;" />
+    <div class="d-flex pb-5 mb-5">
+      <p>
+        &copy; {new Date().getFullYear()} Bivektor Inc. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
