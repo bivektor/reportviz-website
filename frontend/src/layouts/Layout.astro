@@ -3,7 +3,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { siteConfig } from "../config";
 
-const { title, class: classList } = Astro.props;
+const { title, class: bodyClasses } = Astro.props;
 const fullTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
 ---
 
@@ -94,11 +94,6 @@ const fullTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
         font-weight: 400;
       }
 
-      .feature-card {
-        box-shadow: 0 4px 12px rgba(167, 186, 213, 0.1);
-        border-radius: 12px;
-      }
-
       .check-list {
         list-style: none;
         padding-left: 0;
@@ -117,11 +112,15 @@ const fullTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
         left: 0;
         color: var(--bs-success);
       }
+
+      strong {
+        font-weight: 500;
+      }
     </style>
     <title>{fullTitle}</title>
     <slot name="head" />
   </head>
-  <body class:list={classList}>
+  <body class={bodyClasses}>
     <Header />
     <slot />
     <Footer />

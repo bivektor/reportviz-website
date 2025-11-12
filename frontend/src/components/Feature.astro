@@ -5,20 +5,14 @@ interface Props {
   icon?: string;
 }
 
-const { title, icon: iconName = "list", ...rest } = Astro.props;
-
-const icons = import.meta.glob("/src/assets/icons/*.svg", { eager: true });
-const path = `/src/assets/icons/${iconName}.svg`;
-
-const icon = icons[path] as { default: any } | undefined;
-console.log(icon?.default);
+const { title, icon = "list", ...rest } = Astro.props;
 ---
 
-<div class="card h-100 feature-card" data-aos="fade-up" {...rest}>
+<div class="h-100 feature-card" data-aos="fade-up" {...rest}>
   <div class="card-body d-flex">
-    {icon && <Image class="icon" src={icon.default} alt={iconName} />}
+    {icon && <i class={icon}></i>}
     <div class="ms-3">
-      <h5>{title}</h5>
+      <h5 class="card-title">{title}</h5>
       <slot />
     </div>
   </div>
@@ -31,3 +25,14 @@ console.log(icon?.default);
     }
   </style>
 </div>
+
+<style is:global>
+  .feature-card {
+    --bs-card-title-color: var(--bs-primary);
+  }
+
+  .feature-card i {
+    font-size: 2rem;
+    color: var(--bs-primary);
+  }
+</style>

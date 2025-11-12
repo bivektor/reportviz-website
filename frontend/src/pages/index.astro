@@ -7,35 +7,37 @@ import SdkCommunity from "../components/pricing/SdkCommunity.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout class:list="home">
-  <div class="py-5 container-sm">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col d-flex flex-column justify-content-center">
-        <h1 style="font-size: 4rem;">Report Viewer SDK for Java</h1>
-        <p class="fw-light">
-          Effortlessly view and execute reports created with <JasperReports /> in
-          Spring web apps
-        </p>
-      </div>
-      <div class="col">
-        <img src="/home-chart-image.png" class="img-fluid" />
+<Layout class:list="home" title="Report Viewer SDK for Java">
+  <div class="py-5">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col d-flex flex-column justify-content-center">
+          <h1 class="fw-bold fs-1">Report Viewer SDK for Java</h1>
+          <p class="fw-light fs-3">
+            Effortlessly view and execute reports created with <JasperReports />
+            in Spring web apps
+          </p>
+        </div>
+        <div class="col">
+          <img src="/home-chart-image.png" class="img-fluid" />
+        </div>
       </div>
     </div>
   </div>
   <div class="py-5 bg-light">
-    <h2 class="mb-4 text-center">Features</h2>
-    <div class="container-sm">
+    <h2 class="mb-5 text-center">Features</h2>
+    <div class="container">
       <ul
         class="row list-unstyled row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 g-lg-4 g-xl-5"
       >
         <li class="col">
-          <Feature title="REST APIs for Parameter Forms" icon="list"
+          <Feature title="REST APIs for Parameter Forms" icon="bi bi-braces-asterisk"
             >Build parameter forms from auto-generated UI metadata including
             control types, states and default values.</Feature
           >
         </li>
         <li class="col">
-          <Feature title="Smart Parameter Binding" icon="convert"
+          <Feature title="Smart Parameter Binding" icon="bi bi-link-45deg"
             >Convert request parameters to typed report parameters using
             configurable converters. Customize automatic binding per report.</Feature
           >
@@ -43,37 +45,37 @@ import Layout from "../layouts/Layout.astro";
         <li class="col">
           <Feature
             title="Dependency-aware input controls"
-            icon="dependency-tree"
+            icon="bi bi-diagram-3"
             >Automatically resolve cascading control dependencies based on SQL
             query structures and handle invalid selections gracefully.</Feature
           >
         </li>
         <li class="col">
-          <Feature title="Print Caching" icon="save"
+          <Feature title="Print Caching" icon="bi bi-lightning-charge"
             >Cache JasperPrint documents for fast retrieval, navigation and
             export without re-running the report</Feature
           >
         </li>
         <li class="col">
-          <Feature title="Automatic data source resolution" icon="database"
+          <Feature title="Automatic data source resolution" icon="bi bi-database-gear"
             >Resolve report and control data sources using pluggable data source
             beans.</Feature
           >
         </li>
         <li class="col">
-          <Feature title="Multiple Export Formats" icon="export"
+          <Feature title="Multiple Export Formats" icon="bi bi-files"
             >Export reports to PDF, Excel, Word, HTML, CSV and more using
             built-in JasperReports exporters.</Feature
           >
         </li>
         <li class="col">
-          <Feature title="Pluggable Access Control" icon="access"
+          <Feature title="Pluggable Access Control" icon="bi bi-shield-lock"
             >Secure your reports with per-report access control powered by a
             pluggable authorization service.</Feature
           >
         </li>
         <li class="col">
-          <Feature title="Developer Friendly" icon="code"
+          <Feature title="Developer Friendly" icon="bi bi-code-slash"
             >Integrate with Spring Boot starters, customize through Spring beans
             and configuration, override default MVC controllers for advanced use
             cases.</Feature
@@ -82,14 +84,16 @@ import Layout from "../layouts/Layout.astro";
       </ul>
     </div>
   </div>
-  <div class="py-5 border-bottom">
+  <div class="py-5">
     <div class="container">
       <h2 class="text-center mb-5">Get Started</h2>
       <HomeGetStarted />
     </div>
   </div>
-  <div class="py-5 container-sm">
-    <div class="row row-cols-1 row-cols-lg-2">
+  <hr />
+  <div class="py-5">
+    <div class="container">
+          <div class="row row-cols-1 row-cols-lg-2">
       <div class="col">
         <div class="px-3 pt-5 px-lg-5" data-aos="fade-up">
           <h2>Built for SQL, flexible for more</h2>
@@ -121,13 +125,14 @@ import Layout from "../layouts/Layout.astro";
         />
       </div>
     </div>
+    </div>
   </div>
   <div class="position-relative pricing-section bg-secondary">
     <a id="pricing" class="hidden"></a>
     <div class="bg-light pt-5 text-center" style="padding-bottom: 250px">
       <h2>Pricing</h2>
     </div>
-    <div class="container-sm" style="margin-top: -250px">
+    <div class="container" style="margin-top: -250px">
       <div class="row row-cols-1 row-cols-lg-2 g-4">
         <div class="col">
           <SdkCommunity class:list="h-100" data-aos="flip-down">

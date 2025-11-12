@@ -4,7 +4,11 @@ import frameworksImage from "../assets/ui-frameworks.png";
 import JasperReports from "./JasperReports.astro";
 ---
 
-<ul class="nav nav-tabs" id="reportviz-tabs" role="tablist">
+<ul
+  class="nav nav-tabs justify-content-center"
+  id="reportviz-tabs"
+  role="tablist"
+>
   <li class="nav-item" role="presentation">
     <button
       class="nav-link active"
@@ -53,7 +57,6 @@ import JasperReports from "./JasperReports.astro";
     role="tabpanel"
     aria-labelledby="get-started-tab-setup"
   >
-    <h5>Gradle</h5>
     <pre><code class="language-java" is:raw>
 dependencies {
     implementation("com.reportviz:reportviz-spring-boot-starter-web:&lt;VERSION&gt;")
@@ -69,33 +72,34 @@ dependencies {
     <p>
       ReportViz works with <strong
         >precompiled JasperReport (.jasper) objects</strong
-      > and by default, it uses <JasperReports /> repository services to load them.
-      <p>
-        You should configure at least one repository to let ReportViz find your
-        reports.
-      </p>
+      >. The easiest way to get started is to organize your reports in a directory structure.
+    </p>
+    <p>
+      <strong>Step 1:</strong> Place your compiled <code>.jasper</code> files in a directory (e.g., <code>/reports</code>) — similar to how you organize reports in JasperSoft Studio's workspace.
+    </p>
+    <p>
+      <strong>Step 2:</strong> Configure a file system repository to point ReportViz to that directory:
     </p>
     <pre><code class="language-java" is:raw>
-@EnableReportViz
 public class ReportViewerConfig {
-	private static final String REPORTS_DIR = "/path/to/your/reports";
+  @Value("${reportviz.reports-dir}")
+  private String reportsDir;
 
-	/**
-    Register file system repository and persistence services to load reports and subreports from a specific directory.
-    Extensions registered this way automatically become available to JasperReports engine.
+  /**
+    Factory bean for a FileRepositoryService that uses the per-request JaspeReportsContext created by ReportViz.
 	*/
-	@Bean
-	public ExtensionsRegistry fileRepositoryExtensionsRegistry() {
-		FileRepositoryService repositoryService = new FileRepositoryService(
-				DefaultJasperReportsContext.getInstance(),
-				REPOR,
-				false
-		);
+  @Bean
+  public JasperExtensionFactory<FileRepositoryService> fileRepositoryService() {
+    return jasperReportsContext -> new FileRepositoryService(jasperReportsContext, reportsDir, false);
+  }
 
-		return new ListExtensionsRegistry()
-				.add(FileRepositoryPersistenceServiceFactory.class, FileRepositoryPersistenceServiceFactory.getInstance())
-				.add(FileRepositoryService.class, repositoryService);
-	}
+  /**
+    Factory bean for a FileRepositoryPersistenceServiceFactory
+	*/
+  @Bean
+  public JasperExtensionFactory<FileRepositoryPersistenceServiceFactory> repositoryService() {
+    return jasperReportsContext -> FileRepositoryPersistenceServiceFactory.getInstance();
+  }
 }
 </code></pre>
   </div>
