@@ -12,19 +12,23 @@ import Layout from "../layouts/Layout.astro";
 <Layout class:list="home" title="Report Viewer SDK for Java">
   <div class="py-5">
     <div class="container">
-      <div class="row">
+      <div class="row row-cols-1 row-cols-md-2">
         <div class="col text-center d-flex flex-column justify-content-center">
-          <h1 class="fw-bold fs-1">Report Viewer SDK for Java</h1>
-          <p class="fw-light fs-3">
+          <h1 class="fw-bold" style="font-size: 4rem;">Report Viewer SDK for Java</h1>
+          <p class="fw-light fs-3 p-5 pt-2">
             Effortlessly view and execute reports created with <JasperReports />
             in Spring web apps
           </p>
+        </div>
+        <div class="col">
+          <img src="/home-chart-image.png" alt="Report Viewer SDK chart" />
         </div>
       </div>
     </div>
   </div>
   <div class="py-5">
     <div class="container d-flex flex-column align-items-center">
+      <SectionTitle class:list="mb-5">Features</SectionTitle>
       <ul class="row list-unstyled row-cols-1 row-cols-md-2 g-3 g-lg-4">
         <li class="col">
           <Feature
