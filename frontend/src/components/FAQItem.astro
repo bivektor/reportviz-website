@@ -1,0 +1,16 @@
+ 
+---
+const { id, question } = Astro.props;
+---
+ <div class="faq-item" data-bs-toggle="collapse" data-bs-target={`#${id}`}
+       aria-expanded="false">
+    <div class="faq-question">
+      {question}
+      <i class="bi bi-chevron-down faq-icon"></i>
+    </div>
+  </div>
+  <div id={id} class="collapse">
+    <div class="faq-answer">
+      <slot />
+    </div>
+  </div>

@@ -1,12 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import frameworksImage from "../assets/ui-frameworks.png";
-import JasperReports from "./JasperReports.astro";
 ---
 
 <ul
-  class="nav nav-tabs justify-content-center"
-  id="reportviz-tabs"
+  class="nav wizard-dots justify-content-center"
+  id="get-started-tabs"
   role="tablist"
 >
   <li class="nav-item" role="presentation">
@@ -19,7 +18,7 @@ import JasperReports from "./JasperReports.astro";
       aria-controls="setup"
       aria-selected="true"
     >
-      <span class="badge bg-primary">1</span> Add ReportViz Starter
+      <span class="badge rounded-circle">1</span> Add ReportViz Starter
     </button>
   </li>
   <li class="nav-item" role="presentation">
@@ -32,7 +31,7 @@ import JasperReports from "./JasperReports.astro";
       aria-controls="config"
       aria-selected="false"
     >
-      <span class="badge bg-primary">2</span> Configure a Report repository
+      <span class="badge rounded-circle">2</span> Configure a Report repository
     </button>
   </li>
   <li class="nav-item" role="presentation">
@@ -45,7 +44,7 @@ import JasperReports from "./JasperReports.astro";
       aria-controls="ui"
       aria-selected="false"
     >
-      <span class="badge bg-primary">3</span> Build your UI
+      <span class="badge rounded-circle">3</span> Build your UI
     </button>
   </li>
 </ul>
@@ -69,7 +68,8 @@ dependencies {
     role="tabpanel"
     aria-labelledby="get-started-tab-config"
   >
-    <p>
+    <div class="bg-light p-4 mb-3 rounded border border" role="alert">
+      <p>
       ReportViz works with <strong
         >precompiled JasperReport (.jasper) objects</strong
       >. The easiest way to get started is to organize your reports in a directory structure.
@@ -80,8 +80,11 @@ dependencies {
     <p>
       <strong>Step 2:</strong> Configure a file system repository to point ReportViz to that directory:
     </p>
+    </div>
     <pre><code class="language-java" is:raw>
+@Configuration
 public class ReportViewerConfig {
+  
   @Value("${reportviz.reports-dir}")
   private String reportsDir;
 
@@ -117,7 +120,7 @@ public class ReportViewerConfig {
           style="max-width: 100%; height: auto;"
         />
       </div>
-      <div class="col">
+      <div class="col pt-5">
         <p>
           Use ReportViz’s REST API to build a fully custom report viewer with
           your preferred frontend framework.
@@ -135,3 +138,66 @@ public class ReportViewerConfig {
     </div>
   </div>
 </div>
+
+<style>
+  .wizard-dots {
+  align-items: center;
+  gap: .75rem;
+  border: none;
+}
+
+.wizard-dots .nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.wizard-dots .nav-link {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background: none;
+  border: none;
+  color: #475b80;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.wizard-dots .nav-link:hover {
+  color: #1f2a44;
+}
+
+.wizard-dots .nav-link.active {
+  color: #1f2a44;
+  font-weight: 600;
+}
+
+.wizard-dots .badge {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid #cbd5e1;
+  color: #1f2a44;
+  font-size: .8rem;
+  line-height: 1rem;
+}
+
+.wizard-dots .nav-link.active .badge {
+  background: #4945df;
+  border-color: #4945df;
+  color: #fff;
+}
+
+.wizard-dots .connector {
+  flex: 1 1 30px;
+  height: 2px;
+  background: #e5e7eb;
+}
+
+.wizard-dots .nav-link.active + .connector {
+  background: #4945df;
+}
+</style>

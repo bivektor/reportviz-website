@@ -1,0 +1,140 @@
+---
+import FAQItem from "./FAQItem.astro";
+
+const { class: classList } = Astro.props;
+---
+
+<div class={`faq ${classList ?? ""}`}>
+  <FAQItem id="faq-what-is" question="What is ReportViz?">
+    ReportViz is a lightweight JasperReports viewer SDK that lets you embed
+    report rendering, parameter forms, and exporters into any Spring Boot app.
+  </FAQItem>
+  <FAQItem
+    id="faq-jrs"
+    question="How does it differ from JasperReports Server?"
+  >
+    ReportViz is a <strong>lightweight, developer-friendly</strong> alternative designed to run 
+    inside your existing Spring application. <strong>Unlike JasperReports Server</strong>, 
+    it does not manage or compile report units on its own — instead, it works 
+    with your precompiled <code>.jasper</code> files and optional metadata. 
+    ReportViz focuses on providing a full report viewer experience: parameter 
+    forms, cascading controls, report execution, rendering, and exporting, 
+    without the overhead of a standalone server.
+  </FAQItem>
+  <FAQItem id="faq-open-source" question="Is ReportViz open source?">
+    Yes, ReportViz is an open-source project licensed under the GNU GPL 3
+    License.
+  </FAQItem>
+  <FAQItem
+    id="faq-commercial-license"
+    question="Do I need a commercial license?"
+  >
+    ReportViz is free to use under the GNU GPL 3 License. However, if you wish
+    to use ReportViz in a closed-source commercial application without releasing
+    your source code under the same license, you will need to purchase a
+    commercial license from Bivektor Inc.
+  </FAQItem>
+  <FAQItem
+    id="faq-support"
+    question="What kind of support is available for ReportViz?"
+  >
+    We offer optional paid support plans for organizations that need guaranteed
+    assistance. Please check the <a href="/pricing">pricing page</a> for details.
+  </FAQItem>
+  <FAQItem
+    id="faq-system-requirements"
+    question="What are the system requirements for using ReportViz?"
+  >
+    ReportViz runs on <strong>JVM 17+</strong> and requires <strong
+      >Spring Framework 6</strong
+    >
+    and <strong>JasperReports 7.2.x</strong>.
+    <p>
+      It is fully implemented in Kotlin and requires <strong>Kotlin 2.0</strong>
+      standard libraries while the API is fully Java friendly and doesn't require
+      knowledge of Kotlin for usage or customizations.
+    </p>
+    <p>
+      ReportViz is built specifically for Spring applications. Although you may
+      be able to use core functionality outside of Spring, you will
+      <strong
+        >have to depend on Spring libraries and will miss out on seamless
+        integration features.</strong
+      >
+      ReportViz doesn't require <strong>Spring Boot</strong>. You can use it
+      with Spring Framework in non-boot applications as well.
+    </p>
+  </FAQItem>
+  <FAQItem
+    id="faq-multi-datasource"
+    question="Does ReportViz support multiple data sources?"
+  >
+    Yes, ReportViz can connect to multiple data sources. You can configure
+    different data sources in your Spring application context and refer to them
+    from your reports. Note that, only SQL data sources have been tested
+    extensively.
+  </FAQItem>
+  <FAQItem
+    id="faq-parameter-forms"
+    question="How do the REST APIs for parameter forms work?"
+  >
+    ReportViz exposes REST endpoints to help build parameter forms from your
+    report’s metadata, input controls, and query definitions. These APIs return
+    input control metadata and dynamically computed control states based on user
+    input, selection changes, and cascading dependencies. Your frontend simply
+    consumes these endpoints and renders the updated states. The API design
+    closely follows JasperReports Server’s REST API to ensure a familiar
+    workflow.
+  </FAQItem>
+  <FAQItem
+    id="faq-security"
+    question="Can I integrate ReportViz with my existing security setup?">
+    Yes, ReportViz is designed to work with your existing Spring Security setup.
+    You can implement custom access control logic by providing your own
+    authorization service beans.
+  </FAQItem>
+</div>
+
+<style is:global>
+  .faq-item {
+    border-radius: 0.75rem; /* rounded */
+    background: var(--bs-light);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition:
+      background 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  .faq-item:hover {
+    background: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  /* FAQ question text */
+  .faq-question {
+    font-weight: 600;
+    font-size: 1.05rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* rotate icon when open */
+  .faq-item[aria-expanded="true"] .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-icon {
+    transition: transform 0.2s ease;
+    font-size: 1.1rem;
+  }
+
+  /* inner answer block */
+  .faq-answer {
+    padding: 0.5rem 1rem 1.5rem 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+</style>

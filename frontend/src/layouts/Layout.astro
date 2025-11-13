@@ -34,7 +34,7 @@ const fullTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
     <style is:global>
       :root {
         --bs-body-font-family: "Poppins", sans-serif;
-        --bs-heading-color: #25395d;
+        --bs-heading-color: #2c3158;
         --bs-light-rgb: 248, 250, 255;
         --bs-primary: #4945df;
         --bs-primary-rgb: 73, 69, 223;
@@ -91,7 +91,7 @@ const fullTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
       h4,
       h5,
       h6 {
-        font-weight: 400;
+        font-weight: 500;
       }
 
       .check-list {
@@ -114,13 +114,38 @@ const fullTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
       }
 
       strong {
-        font-weight: 500;
+        font-weight: 600;
+      }
+
+      pre[class*="language-"] {
+        background-color: var(--bs-gray-100);
+        border-radius: 1rem;
+        padding: 1.5rem;
+      }
+
+      .nav-pills {
+        --bs-nav-pills-border-radius: var(--bs-border-radius);
+        --bs-nav-pills-link-active-color: #fff;
+        --bs-nav-pills-link-active-bg: var(--bs-heading-color);
+      }
+
+      .badge-circle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+
+        font-weight: 600; /* thick font if you ever put text inside */
+        font-size: 1.2rem; /* icon size (tweak as needed) */
+
+        /* optional niceties */
+        box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.12);
       }
     </style>
     <title>{fullTitle}</title>
     <slot name="head" />
   </head>
-  <body class={bodyClasses}>
+  <body class:list={bodyClasses}>
     <Header />
     <slot />
     <Footer />
