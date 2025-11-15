@@ -9,10 +9,11 @@ const { title, price = "Free", class: className = "", ...rest } = Astro.props;
 ---
 
 <div class:list={["card pricing-card", className]} {...rest}>
-  <div class="card-body">
+  <div class="card-body px-3 px-lg-5">
     <h3 class="card-title text-center">{title}</h3>
+    <hr class="divider" />
     <div class="card-text w-75 mx-auto">
-      <h4 class="price text-light-emphasis text-center my-4" >{price}</h4>
+      <h4 class="price text-grey-400 text-center my-4">{price}</h4>
       <slot />
     </div>
   </div>
@@ -28,3 +29,10 @@ const { title, price = "Free", class: className = "", ...rest } = Astro.props;
   .pricing-card .price {
     font-size: 2rem;
   }
+
+  .pricing-card .divider {
+    height: 1px;
+    margin: 1rem auto;
+    border: 1px solid var(--bs-gray-500);
+  }
+</style>

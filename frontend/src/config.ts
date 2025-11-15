@@ -18,8 +18,7 @@ interface StripeConfig {
 }
 
 export function getStripeConfig(): StripeConfig {
-  const mode = import.meta.env.PUBLIC_STRIPE_MODE || 'test';
-  return stripeConfig[mode as keyof typeof stripeConfig];
+  return stripeConfig.live;
 }
 
 const stripeConfig = {
@@ -30,7 +29,7 @@ const stripeConfig = {
     },
 
     live: {
-      sdkPaymentLink: "https://buy.stripe.com/3cIcN5ci502C1UPc2mbfO00",
+      sdkPaymentLink: "https://buy.stripe.com/7sY28r6XLbLk8jd4zUbfO01",
       supportTableId: "prctbl_1SRY2jFZadBQIVy97dTysADC",
       supportTablePublishingKey: "pk_live_51RvK1wFZadBQIVy9Qt8LiV3Z2dpz9HytZi6JPrkFGLSd2FVrPaMQCLHyRDffPrdoAaxmuawzXCH3D9xAudJlpfvT00ulNJzt5k",
     }

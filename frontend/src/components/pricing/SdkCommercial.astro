@@ -8,16 +8,16 @@ const supportLink = isPricingPage ? "Standard Support" :  `<a href="/pricing">St
 const { button = false } = Astro.props;
 ---
 
-<PricingCard title="Production" price="$399" {...Astro.props}>
+<PricingCard title="Production" price="$549" {...Astro.props}>
   <ul class="check-list">
   <li>
-    Licensed for use in a single application per end-customer. (<a href="/licensing">see licensing</a>)
+    Licensed for use in a single application per end-customer.
   </li>
   <li>Access to full SDK features</li>
   <li>Actively maintained and regularly updated</li>
   <li>Source code included for reference and debugging</li>
   <li>Includes all minor version upgrades</li>
-  <li>Includes 6 months of <Fragment set:html={supportLink} /></li>
+  <li>Includes 6 months of <Fragment set:html={supportLink} /> limited to 4 support requests</li>
 </ul>
 
   {button && (
